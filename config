@@ -6,6 +6,7 @@ floating_modifier Mod1
 # emacs style key bindings
 mode "action" {
      # reload the configuration file
+
      bindsym r reload, mode "default"
      # restart i3 inplace (preserves layout/session)
      bindsym Shift+r restart, mode "default"
@@ -17,10 +18,10 @@ mode "action" {
      bindsym l focus right, mode "default"
 
      # move focused window
-     bindsym mod1+k move up, mode "default"
-     bindsym mod1+j move down, mode "default"
-     bindsym mod1+h move left, mode "default"
-     bindsym Mod1+l move right, mode "default"
+     bindsym Shift+k move up
+     bindsym Shift+j move down
+     bindsym Shift+h move left
+     bindsym Shift+l move right
 
      # switch workspaces
      bindsym 1 workspace 1, mode "default"
@@ -37,21 +38,18 @@ mode "action" {
      bindsym p workspace prev_on_output, mode "default"
 
      # move containers
-     bindsym Mod1+1 move container to workspace 1, mode "default"
-     bindsym Mod1+2 move container to workspace 2, mode "default"
-     bindsym Mod1+3 move container to workspace 3, mode "default"
-     bindsym Mod1+4 move container to workspace 4, mode "default"
-     bindsym Mod1+5 move container to workspace 5, mode "default"
-     bindsym Mod1+6 move container to workspace 6, mode "default"
-     bindsym Mod1+7 move container to workspace 7, mode "default"
-     bindsym Mod1+8 move container to workspace 8, mode "default"
-     bindsym Mod1+9 move container to workspace 9, mode "default"
+     bindsym Shift+1 move container to workspace 1, mode "default"
+     bindsym Shift+2 move container to workspace 2, mode "default"
+     bindsym Shift+3 move container to workspace 3, mode "default"
+     bindsym Shift+4 move container to workspace 4, mode "default"
+     bindsym Shift+5 move container to workspace 5, mode "default"
+     bindsym Shift+6 move container to workspace 6, mode "default"
+     bindsym Shift+7 move container to workspace 7, mode "default"
+     bindsym Shift+8 move container to workspace 8, mode "default"
+     bindsym Shift+9 move container to workspace 9, mode "default"
 
-     bindsym Shift+l move container to output right, mode "default"
-     bindsym Shift+h move container to output left, mode "default"
-
-     # start a terminal
-     bindsym c exec --no-startup-id urxvtc, mode "default"
+     bindsym Mod1+Shift+l move container to output right, mode "default"
+     bindsym Mod1+Shift+h move container to output left, mode "default"
 
      # kill focused window
      bindsym q kill, mode "default"
@@ -96,7 +94,10 @@ mode "action" {
      bindsym Control+g mode "default"
 }
 
-bindsym Control+t mode "action"
+bindsym Mod1+t mode "action"
+
+# start a terminal
+bindsym Mod1+Return exec --no-startup-id urxvtc
 
 bindsym Mod1+Tab workspace back_and_forth
 bindsym Mod1+Shift+t border normal
@@ -158,17 +159,17 @@ bar {
         mode dock
         position bottom
         modifier Mod1
-#status_command none
+	#status_command none
         tray_output DVI-I-1
         workspace_buttons yes
         font xft:dejavu sans bold 11
         colors {
             background #1a1a10
                 statusline #B37300
-                focused_workspace  #a9a9a9 #4d4d3a #ffffff
+                focused_workspace  #a9a9a9 #556b2f #ffffff
                 active_workspace   #333333 #33334D #ffffff
                 inactive_workspace #333333 #1a1a10 #888888
-                urgent_workspace   #7F7F7F #730000 #ffffff
+                urgent_workspace   #7F7F7F #a0522d #ffffff
         }
 }
 
@@ -228,7 +229,7 @@ force_display_urgency_hint 500 ms
 client.focused          #4d4d3a #808060 #ffffff #4d4d3a
 client.focused_inactive #4d4d3a #4D4D3A #a9a9a9 #2b2b21
 client.unfocused        #4d4d3a #404030 #a9a9a9 #121212
-client.urgent           #4d4d3a #730000 #ffffff #730000
+client.urgent           #4d4d3a #a0522d #ffffff #a0522d
 #client.background       red
 
 # floats and assignments
