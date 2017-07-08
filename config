@@ -6,8 +6,8 @@ floating_modifier Mod1
 # emacs style key bindings
 mode "action" {
      # reload the configuration file
-
      bindsym r reload, mode "default"
+
      # restart i3 inplace (preserves layout/session)
      bindsym Shift+r restart, mode "default"
 
@@ -47,6 +47,7 @@ mode "action" {
      bindsym Shift+7 move container to workspace 7, mode "default"
      bindsym Shift+8 move container to workspace 8, mode "default"
      bindsym Shift+9 move container to workspace 9, mode "default"
+     bindsym Shift+0 move container to workspace 10, mode "default"
 
      bindsym Mod1+Shift+l move container to output right, mode "default"
      bindsym Mod1+Shift+h move container to output left, mode "default"
@@ -55,10 +56,10 @@ mode "action" {
      bindsym q kill, mode "default"
 
      # split in horizontal orientation
-     bindsym s split h, mode "default"
+     bindsym Mod1+s split h, mode "default"
 
      # split in vertical orientation
-     bindsym x split v, mode "default"
+     bindsym Mod1+x split v, mode "default"
 
      # enter fullscreen mode for the focused container
      bindsym f fullscreen, mode "default"
@@ -69,7 +70,7 @@ mode "action" {
      bindsym Mod1+y layout toggle split, mode "default"
 
      # toggle tiling / floating
-     bindsym Mod1+x floating toggle, mode "default"
+     bindsym Mod1+d floating toggle, mode "default"
 
      # change focus between tiling / floating windows
      bindsym Mod1+f focus mode_toggle, mode "default"
@@ -85,13 +86,15 @@ mode "action" {
 
      bindsym e exec --no-startup-id rofi -show run, mode "default"
      bindsym w exec --no-startup-id rofi -show window, mode "default"
-     bindsym Control+l exec --no-startup-id slimlock, mode "default"
+     bindsym Control+Shift+l exec --no-startup-id slimlock, mode "default"
 
      # exit i3
      bindsym Shift+Q exec --no-startup-id "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'", mode "default"
 
      bindsym Escape mode "default"
+     bindsym Return mode "default"
      bindsym Control+g mode "default"
+     bindsym Control+bracketleft mode "default"
 }
 
 bindsym Mod1+t mode "action"
@@ -106,7 +109,6 @@ bindsym Mod1+Shift+u border none
 bindsym Mod1+Shift+b border toggle
 bindsym Mod1+Shift+m move scratchpad
 bindsym Mod1+Control+o scratchpad show
-bindsym Mod1+Control+e exec --no-startup-id $HOME/.bin/clipd menu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -130,9 +132,11 @@ mode "resize" {
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
+        bindsym Control+g mode "default"
+        bindsym Control+bracketleft mode "default"
 }
 
-bindsym Mod1+r mode "resize"
+bindsym Control+Mod1+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -162,12 +166,12 @@ bar {
 	#status_command none
         tray_output DVI-I-1
         workspace_buttons yes
-        font xft:dejavu sans bold 11
+        font xft:DejaVu Sans Bold 10.5
         colors {
             background #1a1a10
                 statusline #B37300
-                focused_workspace  #a9a9a9 #556b2f #ffffff
-                active_workspace   #333333 #33334D #ffffff
+                focused_workspace  #a9a9a9 #674C80 #ffffff
+                active_workspace   #333333 #4d4d3a #ffffff
                 inactive_workspace #333333 #1a1a10 #888888
                 urgent_workspace   #7F7F7F #a0522d #ffffff
         }
@@ -176,11 +180,13 @@ bar {
 exec_always --no-startup-id $HOME/.i3/run.sh
 
 # applications
-#bindsym Mod1+Control+n exec --no-startup-id xmms2 next
-#bindsym Mod1+Control+b exec --no-startup-id xmms2 prev
-#bindsym Mod1+Control+c exec --no-startup-id xmms2 pause
-#bindsym Mod1+Control+v exec --no-startup-id xmms2 stop //to be changed
-#bindsym Mod1+Control+x exec --no-startup-id xmms2 play
+bindsym Control+Mod1+n exec --no-startup-id xmms2 next
+bindsym Control+Mod1+b exec --no-startup-id xmms2 prev
+bindsym Control+Mod1+c exec --no-startup-id xmms2 pause
+bindsym Control+Mod1+v exec --no-startup-id xmms2 stop
+bindsym Control+Mod1+x exec --no-startup-id xmms2 play
+bindsym Control+Mod1+bracketleft exec --no-startup-id xmms2 seek -5
+bindsym Control+Mod1+bracketright exec --no-startup-id xmms2 seek +5
 
 #bindsym Control+Mod1+k exec --no-startup-id amixer -q set Master 2dB+ unmute
 #bindsym Control+Mod1+j exec --no-startup-id amixer -q set Master 2dB- unmute
@@ -217,6 +223,7 @@ new_window pixel 2
 new_float pixel 2
 #hide_edge_borders both
 
+mouse_warping none
 focus_follows_mouse no
 #workspace_auto_back_and_forth yes
 #popup_during_fullscreen smart
@@ -225,12 +232,11 @@ focus_follows_mouse no
 force_display_urgency_hint 500 ms
 #tray_output <none|primary|output>
 
-# class                 border  backgr. text    indicator
-client.focused          #4d4d3a #808060 #ffffff #4d4d3a
+# class                 border  backgr. text    indicator child_border
+client.focused          #4d4d3a #674C80 #ffffff #4d4d3a   #808060
 client.focused_inactive #4d4d3a #4D4D3A #a9a9a9 #2b2b21
 client.unfocused        #4d4d3a #404030 #a9a9a9 #121212
 client.urgent           #4d4d3a #a0522d #ffffff #a0522d
-#client.background       red
 
 # floats and assignments
 workspace 1 output DVI-I-1
@@ -243,9 +249,13 @@ workspace 7 output DVI-D-0
 workspace 8 output DVI-D-0
 workspace 9 output DVI-D-0
 workspace 10 output DVI-D-0
+
+# don't focus on new windows
+no_focus [class="[.]*"]
 #for_window [class="Skype"] floating enable
 #assign [class="Skype"] 4
 assign [class="Gvim"] 3
+assign [class="Emacs"] 3
 for_window [class="Nitrogen"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="Gimp"] floating enable
@@ -255,6 +265,8 @@ for_window [class="Deluge"] floating enable
 #assign [class="TeamSpeak 3"] 5
 for_window [class="TeamSpeak 3"] floating enable
 for_window [class="Steam"] floating enable
+for_window [class="Gpicview"] floating enable border normal
+for_window [class="Google-chrome"] border normal
 assign [class="Google-chrome"] 1
 assign [class="Opera"] 1
 assign [class="qpdfview"] 9
@@ -263,6 +275,7 @@ for_window [class="Skype"] floating enable
 for_window [class="Simplescreenrecorder"] floating enable
 assign [class="TelegramDesktop"] 10
 #for_window [class="TelegramDesktop"] floating enable
+assign [class="Code"] 3
 
 # startup
 exec --no-startup-id xrandr --output DVI-I-1 --auto --left-of DVI-D-0
