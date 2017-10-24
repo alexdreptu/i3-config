@@ -28,7 +28,7 @@ ${if_match ${hwmon 2 temp 3} > 50}^fn(fontawesome)^fg(\#CC5252) ^fn(dejavu sa
 ${if_match ${hwmon 2 temp 4} > 50}^fn(fontawesome)^fg(\#CC5252) ^fn(dejavu sans:bold:size=10.5:antialias=true) ${hwmon 2 temp 4}°C ${else}^fn(fontawesome)^fg(\#5290CC) ^fn(dejavu sans:bold:size=10.5:antialias=true) ^fg(\#BFBFBF)${hwmon 2 temp 4}°C ${endif} \
 ${if_match ${hwmon 2 temp 5} > 50}^fn(fontawesome)^fg(\#CC5252) ^fn(dejavu sans:bold:size=10.5:antialias=true) ${hwmon 2 temp 5}°C ${else}^fn(fontawesome)^fg(\#5290CC) ^fn(dejavu sans:bold:size=10.5:antialias=true) ^fg(\#BFBFBF)${hwmon 2 temp 5}°C ${endif} \
 ^fg(\#808060)| \
-${if_match $memperc > 70}^fn(fontawesome)^fg(\#CC5252) $memeasyfree ($memperc%) ${else}^fn(fontawesome)^fg(\#5290CC) ^fn(dejavu sans:bold:size=10.5:antialias=true) ^fg(\#BFBFBF)F: $memeasyfree / T: $memmax ${endif} \
+${if_match $memperc > 70}^fn(fontawesome)^fg(\#CC5252) ^fn(dejavu sans:bold:size=10.5:antialias=true) $memeasyfree ($memperc%) ${else}^fn(fontawesome)^fg(\#5290CC) ^fn(dejavu sans:bold:size=10.5:antialias=true) ^fg(\#BFBFBF)F: $memeasyfree / T: $memmax ${endif} \
 ^fg(\#808060)| \
 ^fn(fontawesome)^fg(\#5290CC) ^fn(dejavu sans:bold:size=10.5:antialias=true) ^fg(\#BFBFBF)${fs_free /} \
 ^fn(fontawesome)^fg(\#5290CC) ^fn(dejavu sans:bold:size=10.5:antialias=true) ^fg(\#52CC52)${diskio_read sda} ^fg(\#CC5252)${diskio_write sda} \
