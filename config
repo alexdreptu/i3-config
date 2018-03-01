@@ -27,10 +27,10 @@ mode "action" {
     bindsym l focus right, mode "default"
 
     # move focused window
-    bindsym Shift+k move up
-    bindsym Shift+j move down
-    bindsym Shift+h move left
-    bindsym Shift+l move right
+    bindsym Mod1+Shift+k move up
+    bindsym Mod1+Shift+j move down
+    bindsym Mod1+Shift+h move left
+    bindsym Mod1+Shift+l move right
 
     # switch workspaces
     bindsym 1 workspace 1, mode "default"
@@ -47,16 +47,16 @@ mode "action" {
     bindsym p workspace prev_on_output, mode "default"
 
     # move containers
-    bindsym Shift+1 move container to workspace 1, mode "default"
-    bindsym Shift+2 move container to workspace 2, mode "default"
-    bindsym Shift+3 move container to workspace 3, mode "default"
-    bindsym Shift+4 move container to workspace 4, mode "default"
-    bindsym Shift+5 move container to workspace 5, mode "default"
-    bindsym Shift+6 move container to workspace 6, mode "default"
-    bindsym Shift+7 move container to workspace 7, mode "default"
-    bindsym Shift+8 move container to workspace 8, mode "default"
-    bindsym Shift+9 move container to workspace 9, mode "default"
-    bindsym Shift+0 move container to workspace 10, mode "default"
+    bindsym Mod1+Shift+1 move container to workspace 1, mode "default"
+    bindsym Mod1+Shift+2 move container to workspace 2, mode "default"
+    bindsym Mod1+Shift+3 move container to workspace 3, mode "default"
+    bindsym Mod1+Shift+4 move container to workspace 4, mode "default"
+    bindsym Mod1+Shift+5 move container to workspace 5, mode "default"
+    bindsym Mod1+Shift+6 move container to workspace 6, mode "default"
+    bindsym Mod1+Shift+7 move container to workspace 7, mode "default"
+    bindsym Mod1+Shift+8 move container to workspace 8, mode "default"
+    bindsym Mod1+Shift+9 move container to workspace 9, mode "default"
+    bindsym Mod1+Shift+0 move container to workspace 10, mode "default"
 
     bindsym Mod1+Shift+l move container to output right, mode "default"
     bindsym Mod1+Shift+h move container to output left, mode "default"
@@ -93,8 +93,9 @@ mode "action" {
     # jump to latest urgent window
     bindsym i [urgent=latest] focus, mode "default"
 
-    bindsym e exec --no-startup-id rofi -show run, mode "default"
-    bindsym w exec --no-startup-id rofi -show window, mode "default"
+    bindsym shift+e exec --no-startup-id rofi -show run -async-pre-read 20, mode "default"
+    bindsym e exec --no-startup-id rofi -show drun -show-icons -async-pre-read 20, mode "default"
+    bindsym w exec --no-startup-id rofi -show window -show-icons -async-pre-read 20, mode "default"
     bindsym Control+Shift+l exec --no-startup-id slimlock, mode "default"
 
     # exit i3
@@ -110,6 +111,7 @@ bindsym Mod1+t mode "action"
 
 # start a terminal
 bindsym Mod1+Return exec --no-startup-id urxvtc
+#bindsym Mod1+Return exec --no-startup-id xterm
 
 bindsym Mod1+Tab workspace back_and_forth
 bindsym Mod1+Shift+t border normal
@@ -145,7 +147,7 @@ mode "resize" {
         bindsym Control+bracketleft mode "default"
 }
 
-bindsym Control+Mod1+r mode "resize"
+#bindsym Control+Mod1+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -178,7 +180,7 @@ bar {
     colors {
         background #272822
         statusline #B37300
-        focused_workspace  #a9a9a9 #674C80 #ffffff
+        focused_workspace  #a9a9a9 #7F6399 #ffffff
         active_workspace   #333333 #4d4d3a #ffffff
         inactive_workspace #4D4D4D #272822 #888888
         urgent_workspace   #a9a9a9 #a0522d #ffffff
@@ -231,7 +233,7 @@ new_window pixel 2
 new_float pixel 2
 #hide_edge_borders both
 
-mouse_warping none
+#mouse_warping none
 focus_follows_mouse no
 #workspace_auto_back_and_forth yes
 #popup_during_fullscreen smart
@@ -241,10 +243,10 @@ force_display_urgency_hint 500 ms
 #tray_output <none|primary|output>
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #4d4d3a #674C80 #ffffff #4d4d3a   #808060
-client.focused_inactive #4d4d3a #4D4D3A #a9a9a9 #2b2b21
-client.unfocused        #4d4d3a #404030 #a9a9a9 #121212
-client.urgent           #4d4d3a #a0522d #ffffff #a0522d
+client.focused          #808060 #7F6399 #ffffff #808060   #808060
+client.focused_inactive #808060 #4D4D3A #a9a9a9 #2b2b21
+client.unfocused        #808060 #404030 #a9a9a9 #121212
+client.urgent           #808060 #a0522d #ffffff #a0522d
 
 # floats and assignments
 workspace 1 output DVI-I-1
@@ -261,7 +263,6 @@ workspace 10 output DVI-D-0
 # don't focus on new windows
 no_focus [class="[.]*"]
 #for_window [class="Skype"] floating enable
-#assign [class="Skype"] 4
 assign [class="Gvim"] 3
 assign [class="Emacs"] 3
 for_window [class="Nitrogen"] floating enable
@@ -274,22 +275,25 @@ for_window [class="TeamSpeak 3"] floating enable
 for_window [class="Steam"] floating enable
 for_window [class="Gpicview"] floating enable border normal
 for_window [class="Google-chrome"] border normal
+for_window [class="Firefox"] border normal
 assign [class="Google-chrome"] 1
 assign [class="Opera"] 1
 assign [class="qpdfview"] 9
+for_window [class="qpdfview"] border normal
 for_window [class="Clementine"] floating enable
-for_window [class="Skype"] floating enable
+assign [class="Skype"] 10
 for_window [class="Simplescreenrecorder"] floating enable
 assign [class="TelegramDesktop"] 10
 #for_window [class="TelegramDesktop"] floating enable
 assign [class="Code"] 3
 for_window [class="Pinentry"] floating enable
+assign [class="nvim-qt"] 3
 
 # startup
 exec --no-startup-id xrandr --output DVI-I-1 --auto --left-of DVI-D-0
 # eliminate screen tearing with nvidia cards
 exec --no-startup-id nvidia-settings --assign CurrentMetaMode="$(xrandr | sed -nr '/(\S+) connected (primary )?[0-9]+x[0-9]+(\+\S+).*/{ s//\1: nvidia-auto-select \3 { ForceFullCompositionPipeline = On }, /; H }; ${ g; s/\n//g; s/, $//; p }')"
-exec --no-startup-id setxkbmap -option grp:lwin_toggle -layout us,de -variant ,qwerty
+exec --no-startup-id setxkbmap -option grp:lwin_toggle -layout us,de -variant ,qwerty -option compose:ralt
 exec --no-startup-id urxvtd -q -o -f
 exec --no-startup-id compton
 exec --no-startup-id nitrogen --restore
