@@ -27,10 +27,10 @@ mode "action" {
     bindsym l focus right, mode "default"
 
     # move focused window
-    bindsym Mod1+Shift+k move up
-    bindsym Mod1+Shift+j move down
-    bindsym Mod1+Shift+h move left
-    bindsym Mod1+Shift+l move right
+    bindsym Mod1+Shift+k move up, mode "default"
+    bindsym Mod1+Shift+j move down, mode "default"
+    bindsym Mod1+Shift+h move left, mode "default"
+    bindsym Mod1+Shift+l move right, mode "default"
 
     # switch workspaces
     bindsym 1 workspace 1, mode "default"
@@ -68,7 +68,7 @@ mode "action" {
     bindsym Mod1+s split h, mode "default"
 
     # split in vertical orientation
-    bindsym Mod1+x split v, mode "default"
+    bindsym Mod1+v split v, mode "default"
 
     # enter fullscreen mode for the focused container
     bindsym f fullscreen, mode "default"
