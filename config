@@ -74,8 +74,8 @@ mode "action" {
     bindsym f fullscreen, mode "default"
 
     # change container layout (stacked, tabbed, toggle split)
-    bindsym Mod1+s layout stacking, mode "default"
     bindsym Mod1+t layout tabbed, mode "default"
+    bindsym Mod1+g layout stacking, mode "default"
     bindsym Mod1+y layout toggle split, mode "default"
 
     # toggle tiling / floating
