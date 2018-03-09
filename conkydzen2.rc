@@ -35,6 +35,7 @@ ${if_match ${hwmon 1 temp 5} > 50}^fn(fontawesome)^fg(\#CC5252) ^fn(dejavu sa
 ${if_match $memperc > 70}^fn(fontawesome)^fg(\#CC5252) ^fn(dejavu sans:bold:size=10.5:antialias=true) $memeasyfree ($memperc%) ${else}^fn(fontawesome)^fg(\#5290CC) ^fn(dejavu sans:bold:size=10.5:antialias=true) ^fg(\#BFBFBF)F: $memeasyfree / T: $memmax ${endif} \
 ^fg(\#808060)| \
 ^fn(fontawesome)^fg(\#5290CC) ^fn(dejavu sans:bold:size=10.5:antialias=true) ^fg(\#BFBFBF)${fs_free /} \
+^fn(fontawesome)^fg(\#5290CC) ^fn(dejavu sans:bold:size=10.5:antialias=true) ^fg(\#BFBFBF)${fs_free /home} \
 ^fn(fontawesome)^fg(\#5290CC) ^fn(dejavu sans:bold:size=10.5:antialias=true) ^fg(\#52CC52)${diskio_read sda} ^fg(\#CC5252)${diskio_write sda} \
 ^fg(\#808060)| \
 ^fn(fontawesome)^fg(\#52CC52) ^fn(dejavu sans:bold:size=10.5:antialias=true) ${downspeed wlp7s0} \
