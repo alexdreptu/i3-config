@@ -1,4 +1,4 @@
-font xft:DejaVu Serif Bold 11
+font xft:DejaVu Serif Bold 10
 
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
@@ -169,8 +169,8 @@ mode "resize" {
 #}
 
 bar {
-    output DVI-I-1
-    output DVI-D-0
+    output HDMI-0
+    output HDMI-1
     mode dock
     position bottom
     modifier Mod1
@@ -249,16 +249,16 @@ client.unfocused        #808060 #404030 #a9a9a9 #121212
 client.urgent           #808060 #a0522d #ffffff #a0522d
 
 # floats and assignments
-workspace 1 output DVI-I-1
-workspace 2 output DVI-I-1
-workspace 3 output DVI-I-1
-workspace 4 output DVI-D-0
-workspace 5 output DVI-D-0
-workspace 6 output DVI-D-0
-workspace 7 output DVI-D-0
-workspace 8 output DVI-D-0
-workspace 9 output DVI-D-0
-workspace 10 output DVI-D-0
+workspace 1 output HDMI-0
+workspace 2 output HDMI-0
+workspace 3 output HDMI-0
+workspace 4 output HDMI-1
+workspace 5 output HDMI-1
+workspace 6 output HDMI-1
+workspace 7 output HDMI-1
+workspace 8 output HDMI-1
+workspace 9 output HDMI-1
+workspace 10 output HDMI-1
 
 # don't focus on new windows
 no_focus [class="[.]*"]
@@ -290,7 +290,7 @@ for_window [class="Pinentry"] floating enable
 assign [class="nvim-qt"] 3
 
 # startup
-exec --no-startup-id xrandr --output DVI-I-1 --auto --left-of DVI-D-0
+exec --no-startup-id xrandr --output HDMI-1 --auto --right-of HDMI-0
 # eliminate screen tearing with nvidia cards
 exec --no-startup-id nvidia-settings --assign CurrentMetaMode="$(xrandr | sed -nr '/(\S+) connected (primary )?[0-9]+x[0-9]+(\+\S+).*/{ s//\1: nvidia-auto-select \3 { ForceFullCompositionPipeline = On }, /; H }; ${ g; s/\n//g; s/, $//; p }')"
 exec --no-startup-id setxkbmap -option grp:lwin_toggle -layout us,de -variant ,qwerty -option compose:ralt
