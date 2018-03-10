@@ -180,10 +180,10 @@ bar {
     colors {
         background #272822
         statusline #B37300
-        focused_workspace  #a9a9a9 #7F6399 #ffffff
-        active_workspace   #333333 #4d4d3a #ffffff
-        inactive_workspace #4D4D4D #272822 #888888
-        urgent_workspace   #a9a9a9 #a0522d #ffffff
+        focused_workspace  #7F6399 #7F6399 #ffffff
+        active_workspace   #808060 #808060 #ffffff
+        inactive_workspace #272822 #272822 #888888
+        urgent_workspace   #a0522d #a0522d #ffffff
     }
 }
 
@@ -243,9 +243,9 @@ force_display_urgency_hint 500 ms
 #tray_output <none|primary|output>
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #808060 #7F6399 #ffffff #808060   #808060
-client.focused_inactive #808060 #4D4D3A #a9a9a9 #2b2b21
-client.unfocused        #808060 #404030 #a9a9a9 #121212
+client.focused          #808060 #7F6399 #ffffff #FF854D   #CCCC99
+client.focused_inactive #808060 #808060 #ffffff #2b2b21
+client.unfocused        #404030 #404030 #a9a9a9 #121212
 client.urgent           #808060 #a0522d #ffffff #a0522d
 
 # floats and assignments
