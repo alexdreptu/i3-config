@@ -1,4 +1,4 @@
-font xft:DejaVu Serif Bold 10
+font xft:DejaVu Serif Bold 9
 
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
@@ -174,7 +174,7 @@ bar {
     mode dock
     position bottom
     modifier Mod1
-    tray_output DVI-I-1
+    tray_output HDMI-0
     workspace_buttons yes
     font xft:DejaVu Sans Bold 10.5
     colors {
@@ -276,6 +276,7 @@ for_window [class="Steam"] floating enable
 for_window [class="Gpicview"] floating enable border normal
 for_window [class="Google-chrome"] border normal
 for_window [class="Firefox"] border normal
+assign [class="Firefox"] 1
 assign [class="Google-chrome"] 1
 assign [class="Opera"] 1
 assign [class="qpdfview"] 9
