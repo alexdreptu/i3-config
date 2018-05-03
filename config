@@ -176,7 +176,7 @@ bar {
     modifier Mod1
     tray_output HDMI-0
     workspace_buttons yes
-    font xft:DejaVu Sans Bold 10.5
+    font xft:DejaVu Sans Bold 10
     colors {
         background #272822
         statusline #B37300
