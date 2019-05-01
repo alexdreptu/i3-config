@@ -1,7 +1,92 @@
-font xft:DejaVu Serif Bold 11
+font pango: Noto Sans Bold 11
 
-# use Mouse+Mod1 to drag floating windows to their wanted position
-floating_modifier Mod1
+# set Mod1 (left-alt) as mod key
+set $mod Mod1
+
+# use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+set $sep_symbol "│"
+
+# colors
+set $client_focused_border "#75609f"
+set $client_focused_background "#75609f"
+set $client_focused_text "#ffffff"
+set $client_focused_indicator "#FF854D"
+set $client_focused_child_border "#ac9fc6"
+
+set $client_focused_inactive_border "#606a9f"
+set $client_focused_inactive_background "#606a9f"
+set $client_focused_inactive_text "#d9d9d9"
+set $client_focused_inactive_indicator "#2b2b21"
+
+set $client_unfocused_border "#696969"
+set $client_unfocused_background "#696969"
+set $client_unfocused_text "#d9d9d9"
+set $client_unfocused_indicator "#121212"
+
+set $client_urgent_border "#808060"
+set $client_urgent_background "#bf4040"
+set $client_urgent_text "#ffffff"
+set $client_urgent_indicator "#bf4040"
+
+# set $client_placeholder_border ""
+# set $client_placeholder_background ""
+# set $client_placeholder_text ""
+
+set $client_background "#282729"
+
+# set $bar_font DejaVu Sans Bold 10.5
+# set $bar_font Fira Code Semibold 10
+# set $bar_font Source Code Pro Bold 10.5
+set $bar_font Ubuntu Mono Bold 12
+set $bar_background "#363437"
+set $bar_statusline "#B37301"
+set $bar_separator "#CCCC89"
+
+set $focused_workspace_border "#6b5c8a"
+set $focused_workspace_background "#6b5c8a"
+set $focused_workspace_text "#ffffff"
+
+set $active_workspace_border "#606a9f"
+set $active_workspace_background "#606a9f"
+set $active_workspace_text "#ffffff"
+
+set $inactive_workspace_border "#272822"
+set $inactive_workspace_background "#363437"
+set $inactive_workspace_text "#d9d9d9"
+
+set $urgent_workspace_border "#bf4040"
+set $urgent_workspace_background "#bf4040"
+set $urgent_workspace_text "#ffffff"
+
+set $binding_mode_border "#bf6a40"
+set $binding_mode_background "#bf6a40"
+set $binding_mode_text "#ffffff"
+
+# workspace names
+set $ws1 "1:Web"
+set $ws2 "2:Files"
+set $ws3 "3:Coding"
+set $ws4 "4:Work1"
+set $ws5 "5:Work2"
+set $ws6 "6:Sysinfo"
+set $ws7 "7:Remote"
+set $ws8 "8:Movie"
+set $ws9 "9:Reading"
+set $ws10 "10:Chat"
+
+# workspace assigments
+workspace $ws1 output DVI-I-1
+workspace $ws2 output DVI-I-1
+workspace $ws3 output DVI-I-1
+workspace $ws4 output DVI-D-0
+workspace $ws5 output DVI-D-0
+workspace $ws6 output DVI-D-0
+workspace $ws7 output DVI-D-0
+workspace $ws8 output DVI-D-0
+workspace $ws9 output DVI-D-0
+workspace $ws10 output DVI-D-0
 
 # emacs style key bindings
 mode "action" {
@@ -27,79 +112,82 @@ mode "action" {
     bindsym l focus right, mode "default"
 
     # move focused window
-    bindsym Mod1+Shift+k move up, mode "default"
-    bindsym Mod1+Shift+j move down, mode "default"
-    bindsym Mod1+Shift+h move left, mode "default"
-    bindsym Mod1+Shift+l move right, mode "default"
+    bindsym $mod+Shift+k move up, mode "default"
+    bindsym $mod+Shift+j move down, mode "default"
+    bindsym $mod+Shift+h move left, mode "default"
+    bindsym $mod+Shift+l move right, mode "default"
 
     # switch workspaces
-    bindsym 1 workspace 1, mode "default"
-    bindsym 2 workspace 2, mode "default"
-    bindsym 3 workspace 3, mode "default"
-    bindsym 4 workspace 4, mode "default"
-    bindsym 5 workspace 5, mode "default"
-    bindsym 6 workspace 6, mode "default"
-    bindsym 7 workspace 7, mode "default"
-    bindsym 8 workspace 8, mode "default"
-    bindsym 9 workspace 9, mode "default"
-    bindsym 0 workspace 10, mode "default"
+    bindsym 1 workspace number $ws1, mode "default"
+    bindsym 2 workspace number $ws2, mode "default"
+    bindsym 3 workspace number $ws3, mode "default"
+    bindsym 4 workspace number $ws4, mode "default"
+    bindsym 5 workspace number $ws5, mode "default"
+    bindsym 6 workspace number $ws6, mode "default"
+    bindsym 7 workspace number $ws7, mode "default"
+    bindsym 8 workspace number $ws8, mode "default"
+    bindsym 9 workspace number $ws9, mode "default"
+    bindsym 0 workspace number $ws10, mode "default"
+
     bindsym n workspace next_on_output, mode "default"
     bindsym p workspace prev_on_output, mode "default"
 
     # move containers
-    bindsym Mod1+Shift+1 move container to workspace 1, mode "default"
-    bindsym Mod1+Shift+2 move container to workspace 2, mode "default"
-    bindsym Mod1+Shift+3 move container to workspace 3, mode "default"
-    bindsym Mod1+Shift+4 move container to workspace 4, mode "default"
-    bindsym Mod1+Shift+5 move container to workspace 5, mode "default"
-    bindsym Mod1+Shift+6 move container to workspace 6, mode "default"
-    bindsym Mod1+Shift+7 move container to workspace 7, mode "default"
-    bindsym Mod1+Shift+8 move container to workspace 8, mode "default"
-    bindsym Mod1+Shift+9 move container to workspace 9, mode "default"
-    bindsym Mod1+Shift+0 move container to workspace 10, mode "default"
+    bindsym $mod+Shift+1 move container to workspace $ws1, mode "default"
+    bindsym $mod+Shift+2 move container to workspace $ws2, mode "default"
+    bindsym $mod+Shift+3 move container to workspace $ws3, mode "default"
+    bindsym $mod+Shift+4 move container to workspace $ws4, mode "default"
+    bindsym $mod+Shift+5 move container to workspace $ws5, mode "default"
+    bindsym $mod+Shift+6 move container to workspace $ws6, mode "default"
+    bindsym $mod+Shift+7 move container to workspace $ws7, mode "default"
+    bindsym $mod+Shift+8 move container to workspace $ws8, mode "default"
+    bindsym $mod+Shift+9 move container to workspace $ws9, mode "default"
+    bindsym $mod+Shift+0 move container to workspace $ws10, mode "default"
 
-    bindsym Mod1+Shift+l move container to output right, mode "default"
-    bindsym Mod1+Shift+h move container to output left, mode "default"
+    bindsym $mod+Shift+l move container to output right, mode "default"
+    bindsym $mod+Shift+h move container to output left, mode "default"
 
     # kill focused window
     bindsym q kill, mode "default"
 
     # split in horizontal orientation
-    bindsym Mod1+s split h, mode "default"
+    bindsym $mod+s split h, mode "default"
 
     # split in vertical orientation
-    bindsym Mod1+v split v, mode "default"
+    bindsym $mod+v split v, mode "default"
 
     # enter fullscreen mode for the focused container
     bindsym f fullscreen, mode "default"
 
     # change container layout (stacked, tabbed, toggle split)
-    bindsym Mod1+t layout tabbed, mode "default"
-    bindsym Mod1+g layout stacking, mode "default"
-    bindsym Mod1+y layout toggle split, mode "default"
+    bindsym $mod+t layout tabbed, mode "default"
+    bindsym $mod+g layout stacking, mode "default"
+    bindsym $mod+y layout toggle split, mode "default"
 
     # toggle tiling / floating
-    bindsym Mod1+d floating toggle, mode "default"
+    bindsym $mod+d floating toggle, mode "default"
 
     # change focus between tiling / floating windows
-    bindsym Mod1+f focus mode_toggle, mode "default"
+    bindsym $mod+f focus mode_toggle, mode "default"
 
     # focus the parent container
-    bindsym Mod1+p focus parent, mode "default"
+    bindsym $mod+p focus parent, mode "default"
 
     # focus the child container
-    bindsym Mod1+c focus child, mode "default"
+    bindsym $mod+c focus child, mode "default"
 
     # jump to latest urgent window
     bindsym i [urgent=latest] focus, mode "default"
 
     bindsym shift+e exec --no-startup-id rofi -show run -async-pre-read 20, mode "default"
     bindsym e exec --no-startup-id rofi -show drun -show-icons -async-pre-read 20, mode "default"
-    bindsym w exec --no-startup-id rofi -show window -show-icons -async-pre-read 20, mode "default"
+    bindsym w exec --no-startup-id rofi -show windowcd -show-icons -async-pre-read 20, mode "default"
+    bindsym Shift+w exec --no-startup-id rofi -show window -show-icons -async-pre-read 20, mode "default"
+    bindsym c exec --no-startup-id clipmenu, mode "default"
     bindsym Control+Shift+l exec --no-startup-id slimlock, mode "default"
 
     # exit i3
-    bindsym Shift+Q exec --no-startup-id "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'", mode "default"
+    bindsym Shift+Q exec --no-startup-id "i3-nagbar -f 'pango:DejaVu Sans Bold 10.5' -t warning -m 'Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'", mode "default"
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
@@ -107,202 +195,260 @@ mode "action" {
     bindsym Control+bracketleft mode "default"
 }
 
-bindsym Mod1+t mode "action"
+bindsym $mod+t mode "action"
 
 # start a terminal
-bindsym Mod1+Return exec --no-startup-id urxvtc
-#bindsym Mod1+Return exec --no-startup-id xterm
+#bindsym $mod+Return exec --no-startup-id urxvtc
+#bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+Return exec --no-startup-id kitty
 
-bindsym Mod1+Tab workspace back_and_forth
-bindsym Mod1+Shift+t border normal
-bindsym Mod1+Shift+y border pixel
-bindsym Mod1+Shift+u border none
-bindsym Mod1+Shift+b border toggle
-bindsym Mod1+Shift+m move scratchpad
-bindsym Mod1+Control+o scratchpad show
+bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Shift+t border normal
+bindsym $mod+Shift+y border pixel
+bindsym $mod+Shift+u border none
+bindsym $mod+Shift+b border toggle
+bindsym $mod+Shift+m move scratchpad
+bindsym $mod+Control+o scratchpad show
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+    # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h           resize shrink width 10 px or 10 ppt
-        bindsym j           resize grow height 10 px or 10 ppt
-        bindsym k           resize shrink height 10 px or 10 ppt
-        bindsym l           resize grow width 10 px or 10 ppt
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym h           resize shrink width 10 px or 10 ppt
+    bindsym j           resize grow height 10 px or 10 ppt
+    bindsym k           resize shrink height 10 px or 10 ppt
+    bindsym l           resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left        resize shrink width 10 px or 10 ppt
-        bindsym Down        resize grow height 10 px or 10 ppt
-        bindsym Up          resize shrink height 10 px or 10 ppt
-        bindsym Right       resize grow width 10 px or 10 ppt
+    # same bindings, but for the arrow keys
+    bindsym Left        resize shrink width 10 px or 10 ppt
+    bindsym Down        resize grow height 10 px or 10 ppt
+    bindsym Up          resize shrink height 10 px or 10 ppt
+    bindsym Right       resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym Control+g mode "default"
-        bindsym Control+bracketleft mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym Control+g mode "default"
+    bindsym Control+bracketleft mode "default"
 }
 
-#bindsym Control+Mod1+r mode "resize"
+#bindsym Control+$mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#      mode dock
-#      position top
-#  modifier Mod1
-#  #tray_output none
-#  workspace_buttons no
-#      font xft:Liberation Sans Bold 9
-#      colors {
-#        background #1A1A1A
-#        statusline #B37300
-#        focused_workspace  #7F7F7F #4B4B73 #FFFFFF
-#        active_workspace   #333333 #33334D #FFFFFF
-#        inactive_workspace #333333 #222222 #888888
-#        urgent_workspace   #7F7F7F #730000 #FFFFFF
-#      }
-#}
+client.focused $client_focused_border $client_focused_background $client_focused_text $client_focused_indicator $client_focused_child_border
+client.focused_inactive $client_focused_inactive_border $client_focused_inactive_background $client_focused_inactive_text $client_focused_inactive_indicator
+client.unfocused $client_unfocused_border $client_unfocused_background $client_unfocused_text $client_unfocused_indicator 
+client.urgent $client_urgent_border $client_urgent_background $client_urgent_text $client_urgent_indicator
 
+# Monitor 1 top bar
 bar {
     output DVI-I-1
+    mode dock
+    position top
+    modifier $mod
+    tray_output none
+    workspace_buttons no
+    binding_mode_indicator no
+    separator_symbol $sep_symbol
+    status_command py3status -c $HOME/.i3/py3status_conf.d/mon1_top.conf
+    font pango:$bar_font
+    colors {
+        background $bar_background
+        statusline $bar_statusline
+        separator $bar_separator
+    }
+    bindsym button1 nop
+    bindsym button2 nop
+    bindsym button3 nop
+    bindsym button4 nop
+    bindsym button5 nop
+}
+
+# monitor 1 bottom bar
+bar {
+    output DVI-I-1
+    mode dock
+    position bottom
+    modifier $mod
+    tray_output DVI-I-1
+    # tray_padding 5
+    workspace_buttons yes
+    binding_mode_indicator yes
+    strip_workspace_numbers yes
+    separator_symbol $sep_symbol
+    status_command py3status
+    font pango:$bar_font
+    colors {
+        background $bar_background
+        statusline $bar_statusline
+        separator $bar_separator
+        focused_workspace $focused_workspace_border $focused_workspace_background $focused_workspace_text
+        active_workspace $active_workspace_border $active_workspace_background $active_workspace_text
+        inactive_workspace $inactive_workspace_border $inactive_workspace_background $inactive_workspace_text
+        urgent_workspace $urgent_workspace_border $urgent_workspace_background $urgent_workspace_text
+        binding_mode $binding_mode_border $binding_mode_background $binding_mode_text
+    }
+    bindsym button1 nop
+    bindsym button2 nop
+    bindsym button3 nop
+    bindsym button4 nop
+    bindsym button5 nop
+}
+
+# monitor 2 top bar
+bar {
+    output DVI-D-0
+    mode dock
+    position top
+    modifier $mod
+    tray_output none
+    workspace_buttons no
+    binding_mode_indicator no
+    separator_symbol $sep_symbol
+    #status_command py3status
+    font xft:$bar_font
+    colors {
+        background $bar_background
+        statusline $bar_statusline
+        separator $bar_separator
+    }
+    bindsym button1 nop
+    bindsym button2 nop
+    bindsym button3 nop
+    bindsym button4 nop
+    bindsym button5 nop
+}
+
+# monitor 2 bottom bar
+bar {
     output DVI-D-0
     mode dock
     position bottom
-    modifier Mod1
-    tray_output DVI-I-1
+    modifier $mod
+    tray_output none
     workspace_buttons yes
-    font xft:DejaVu Sans Bold 10.5
+    binding_mode_indicator yes
+    strip_workspace_numbers yes
+    separator_symbol $sep_symbol
+    # status_command py3status
+    font pango:$bar_font
     colors {
-        background #272822
-        statusline #B37300
-        focused_workspace  #7F6399 #7F6399 #ffffff
-        active_workspace   #808060 #808060 #ffffff
-        inactive_workspace #272822 #272822 #888888
-        urgent_workspace   #a0522d #a0522d #ffffff
+        background $bar_background
+        statusline $bar_statusline
+        separator $bar_separator
+        focused_workspace $focused_workspace_border $focused_workspace_background $focused_workspace_text
+        active_workspace $active_workspace_border $active_workspace_background $active_workspace_text
+        inactive_workspace $inactive_workspace_border $inactive_workspace_background $inactive_workspace_text
+        urgent_workspace $urgent_workspace_border $urgent_workspace_background $urgent_workspace_text
+        binding_mode $binding_mode_border $binding_mode_background $binding_mode_text
     }
+    bindsym button1 nop
+    bindsym button2 nop
+    bindsym button3 nop
+    bindsym button4 nop
+    bindsym button5 nop
 }
 
 exec_always --no-startup-id $HOME/.i3/run.sh
+#exec_always --no-startup-id $HOME/.config/polybar/run.sh
 
 # applications
-bindsym Control+Mod1+n exec --no-startup-id xmms2 next
-bindsym Control+Mod1+b exec --no-startup-id xmms2 prev
-bindsym Control+Mod1+c exec --no-startup-id xmms2 pause
-bindsym Control+Mod1+v exec --no-startup-id xmms2 stop
-bindsym Control+Mod1+x exec --no-startup-id xmms2 play
-bindsym Control+Mod1+bracketleft exec --no-startup-id xmms2 seek -5
-bindsym Control+Mod1+bracketright exec --no-startup-id xmms2 seek +5
+bindsym Control+$mod+n exec --no-startup-id xmms2 next
+bindsym Control+$mod+b exec --no-startup-id xmms2 prev
+bindsym Control+$mod+c exec --no-startup-id xmms2 pause
+bindsym Control+$mod+v exec --no-startup-id xmms2 stop
+bindsym Control+$mod+x exec --no-startup-id xmms2 play
+bindsym Control+$mod+bracketleft exec --no-startup-id xmms2 seek -5
+bindsym Control+$mod+bracketright exec --no-startup-id xmms2 seek +5
 
-#bindsym Control+Mod1+k exec --no-startup-id amixer -q set Master 2dB+ unmute
-#bindsym Control+Mod1+j exec --no-startup-id amixer -q set Master 2dB- unmute
-#bindsym Control+Mod1+m exec --no-startup-id amixer -q set Master toggle
+# bindsym Control+$mod+k exec --no-startup-id amixer -q set Master 2dB+ unmute
+# bindsym Control+$mod+j exec --no-startup-id amixer -q set Master 2dB- unmute
+# bindsym Control+$mod+m exec --no-startup-id amixer -q set Master toggle
 
 # control volume via home row keys
-bindsym Control+Mod1+k exec --no-startup-id amixer -q set Headphone 2dB+ unmute
-bindsym Control+Mod1+j exec --no-startup-id amixer -q set Headphone 2dB- unmute
-bindsym Control+Mod1+m exec --no-startup-id amixer -q set Headphone toggle
+bindsym Control+$mod+k exec --no-startup-id amixer -q set Headphone 2dB+ unmute && py3-cmd refresh volume_status
+bindsym Control+$mod+j exec --no-startup-id amixer -q set Headphone 2dB- unmute && py3-cmd refresh volume_status
+bindsym Control+$mod+m exec --no-startup-id amixer -q set Headphone toggle && py3-cmd refresh volume_status
 
 # control volume via multimedia keys
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Headphone 2dB+ unmute
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Headphone 2dB- unmute
-bindsym XF86AudioMute exec --no-startup-id amixer -q set Headphone toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Headphone 2dB+ unmute && py3-cmd refresh volume_status
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Headphone 2dB- unmute && py3-cmd refresh volume_status
+bindsym XF86AudioMute exec --no-startup-id amixer -q set Headphone toggle && py3-cmd refresh volume_status
 
 # Multimedia Keys
-#bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 2dB+ unmute
-#bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 2dB- unmute
+# bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 2dB+ unmute
+# bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 2dB- unmute
 
-#bindsym XF86AudioPlay exec --no-startup-id xmms2 play
-#bindsym XF86AudioStop exec --no-startup-id xmms2 stop
-#bindsym XF86AudioNext exec --no-startup-id xmms2 next
-#bindsym XF86AudioPrev exec --no-startup-id xmms2 prev
+# bindsym XF86AudioPlay exec --no-startup-id xmms2 play
+# bindsym XF86AudioStop exec --no-startup-id xmms2 stop
+# bindsym XF86AudioNext exec --no-startup-id xmms2 next
+# bindsym XF86AudioPrev exec --no-startup-id xmms2 prev
 
-#bindsym Control+Mod1+k exec --no-startup-id amixer -q set PCM 2dB+ unmute
-#bindsym Control+Mod1+j exec --no-startup-id amixer -q set PCM 2dB- unmute
-#bindsym Control+Mod1+m exec --no-startup-id amixer -q set PCM toggle
+# bindsym Control+$mod+k exec --no-startup-id amixer -q set PCM 2dB+ unmute
+# bindsym Control+$mod+j exec --no-startup-id amixer -q set PCM 2dB- unmute
+# bindsym Control+$mod+m exec --no-startup-id amixer -q set PCM toggle
 
 # pulseaudio
-#bindsym Control+k exec --no-startup-id pamixer --increase 2
-#bindsym Control+j exec --no-startup-id pamixer --decrease 2
+# bindsym Control+k exec --no-startup-id pamixer --increase 2
+# bindsym Control+j exec --no-startup-id pamixer --decrease 2
 
 new_window pixel 2
 new_float pixel 2
-#hide_edge_borders both
+# hide_edge_borders both
 
-#mouse_warping none
+# mouse_warping none
 focus_follows_mouse no
-#workspace_auto_back_and_forth yes
-#popup_during_fullscreen smart
-#force_focus_wrapping yes
-#force_xinerama yes
+# workspace_auto_back_and_forth yes
+# popup_during_fullscreen smart
+# force_focus_wrapping yes
+# force_xinerama yes
 force_display_urgency_hint 500 ms
-#tray_output <none|primary|output>
-
-# class                 border  backgr. text    indicator child_border
-client.focused          #808060 #7F6399 #ffffff #FF854D   #CCCC99
-client.focused_inactive #808060 #808060 #ffffff #2b2b21
-client.unfocused        #404030 #404030 #a9a9a9 #121212
-client.urgent           #808060 #a0522d #ffffff #a0522d
+# tray_output DVI-I-1
 
 # floats and assignments
-workspace 1 output DVI-I-1
-workspace 2 output DVI-I-1
-workspace 3 output DVI-I-1
-workspace 4 output DVI-D-0
-workspace 5 output DVI-D-0
-workspace 6 output DVI-D-0
-workspace 7 output DVI-D-0
-workspace 8 output DVI-D-0
-workspace 9 output DVI-D-0
-workspace 10 output DVI-D-0
-
 # don't focus on new windows
-no_focus [class="[.]*"]
-#for_window [class="Skype"] floating enable
-assign [class="Gvim"] 3
-assign [class="Emacs"] 3
+# no_focus [class="[.]*"]
+floating_maximum_size 1600x900
+assign [class="Gvim"] $ws3
+assign [class="Emacs"] $ws3
 for_window [class="Nitrogen"] floating enable
 for_window [class="feh"] floating enable
+for_window [class="Sxiv"] floating enable
 for_window [class="Gpicview"] floating enable border normal
 for_window [class="Deluge"] floating enable
-#for_window [class="Ts3client_linux_amd64"] floating enable
-#assign [class="TeamSpeak 3"] 5
 for_window [class="TeamSpeak 3"] floating enable
 for_window [class="Steam"] floating enable
 for_window [class="Gpicview"] floating enable border normal
 for_window [class="Google-chrome"] border normal
 for_window [class="Firefox"] border normal
-assign [class="Google-chrome"] 1
-assign [class="Opera"] 1
-assign [class="qpdfview"] 9
-for_window [class="qpdfview"] border normal
+for_window [class="Brave-browser"] border normal
+assign [class="Google-chrome"] $ws1
+assign [class="Opera"] $ws1
+assign [class="Brave-browser"] $ws1
+assign [class="qpdfview"] $ws9
+for_window [class="qpdfview"] border pixel
 for_window [class="Clementine"] floating enable
-assign [class="Skype"] 10
+assign [class="Skype"] $ws10
 for_window [class="Simplescreenrecorder"] floating enable
-assign [class="TelegramDesktop"] 10
-#for_window [class="TelegramDesktop"] floating enable
-assign [class="Code"] 3
+assign [class="TelegramDesktop"] $ws10
+assign [class="Code"] $ws3
 for_window [class="Pinentry"] floating enable
-assign [class="nvim-qt"] 3
 
 # startup
 exec --no-startup-id xrandr --output DVI-I-1 --auto --left-of DVI-D-0
 # eliminate screen tearing with nvidia cards
 exec --no-startup-id nvidia-settings --assign CurrentMetaMode="$(xrandr | sed -nr '/(\S+) connected (primary )?[0-9]+x[0-9]+(\+\S+).*/{ s//\1: nvidia-auto-select \3 { ForceFullCompositionPipeline = On }, /; H }; ${ g; s/\n//g; s/, $//; p }')"
 exec --no-startup-id setxkbmap -option grp:lwin_toggle -layout us,de -variant ,qwerty -option compose:ralt
-exec --no-startup-id urxvtd -q -o -f
+#exec --no-startup-id urxvtd -q -o -f
 exec --no-startup-id compton
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id unclutter -idle 3
+exec --no-startup-id clipmenud
 exec --no-startup-id autocutsel -fork
 exec --no-startup-id autocutsel -s PRIMARY -fork
-exec --no-startup-id xset r rate 250 40
-# disable mouse wheel
-#exec --no-startup-id xinput set-button-map 10 1 2 3 0 0 6 7
-#exec --no-startup-id xset m 4/3 0
+exec --no-startup-id xset r rate 250 70
 exec --no-startup-id xset m 3/2 0
 exec --no-startup-id xset dpms 0 600 1800
